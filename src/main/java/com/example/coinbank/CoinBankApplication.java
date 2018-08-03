@@ -1,6 +1,6 @@
 package com.example.coinbank;
 
-import com.example.coinbank.Service.CoinService;
+import com.example.coinbank.service.CoinService;
 import com.example.coinbank.dto.CoinType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;

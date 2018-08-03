@@ -1,4 +1,4 @@
-package com.example.coinbank.Service;
+package com.example.coinbank.service;
 
 import com.example.coinbank.dto.Coin;
 import com.example.coinbank.dto.CoinType;
