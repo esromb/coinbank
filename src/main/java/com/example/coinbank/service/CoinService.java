@@ -31,11 +31,6 @@ public class CoinService {
     public boolean hasEnough(BigDecimal bill) {
         return coins.hasEnoughCoin(Optional.of(bill));
     }
-
-    public boolean getCoins(BigDecimal bill, Map<CoinType, Long> coinTypeCount){
-        return coins.deduct(Optional.of(bill), coinTypeCount);
-    }
-
     public boolean deduct(BigDecimal bill, Map<CoinType,Long> coinTypeCount) {
         return coins.deduct(Optional.of(bill), coinTypeCount);
     }
