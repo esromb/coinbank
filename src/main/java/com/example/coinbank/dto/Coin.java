@@ -13,12 +13,12 @@ public abstract class Coin {
     private CoinType coinType;
 
 
-    private long coinMultiplier;
+    private float coinMultiplier;
 
 
     public Coin(){}
 
-    public Coin(long numberOfCoins, Coin coin, CoinType coinType, long coinMultiplier) {
+    public Coin(long numberOfCoins, Coin coin, CoinType coinType, float coinMultiplier) {
         this.numberOfCoins = BigDecimal.valueOf(numberOfCoins);
         this.coin = coin;
         this.coinType = coinType;
@@ -45,10 +45,10 @@ public abstract class Coin {
                 return true;
             }
             if (this.coin != null) {
-                BigDecimal amountToDeductFromThisCoinSet = bill.get().multiply(BigDecimal.valueOf(this.coinMultiplier));
+                BigDecimal amountToDeductFromThisCoinSet = BigDecimal.valueOf(bill.get().multiply(BigDecimal.valueOf(this.coinMultiplier)).longValue());
                 BigDecimal remaining = this.getNumberOfCoins()
                         .subtract(amountToDeductFromThisCoinSet).abs();
-                return this.coin.hasEnoughCoin(Optional.of(remaining.divide(BigDecimal.valueOf(this.coinMultiplier))));
+                return this.coin.hasEnoughCoin(Optional.of(remaining.divide(BigDecimal.valueOf(BigDecimal.valueOf(this.coinMultiplier).longValue()))));
             }
         }
         return false;
@@ -88,7 +88,7 @@ public abstract class Coin {
                                         amountToDeduct)));
                 coinTypeCount.put(this.coinType, amountToDeduct);
                 if (this.coin != null && remaining.get().intValue() > 0) {
-                    BigDecimal remainingTobeDeductedFromOtherCoin = remaining.get().divide(BigDecimal.valueOf(this.coinMultiplier));
+                    BigDecimal remainingTobeDeductedFromOtherCoin = remaining.get().divide(BigDecimal.valueOf(BigDecimal.valueOf(this.coinMultiplier).longValue()));
                     return this.coin.deduct(Optional.of(remainingTobeDeductedFromOtherCoin), coinTypeCount);
                 }
                 return true;

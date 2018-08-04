@@ -42,6 +42,8 @@ public class CoinBankApplication implements CommandLineRunner {
 					if (deducted) {
 						coinService.print(coinTypeCount);
 					}
+				} else {
+					System.out.println("There is no enough coin");
 				}
 			}
 			if (!coinService.hasEnough(BigDecimal.ONE)){

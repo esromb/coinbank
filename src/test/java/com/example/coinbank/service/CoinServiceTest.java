@@ -32,13 +32,10 @@ public class CoinServiceTest {
         when(coinProperties.getDime()).thenReturn(Long.valueOf(100));
         when(coinProperties.getNickel()).thenReturn(Long.valueOf(100));
         when(coinProperties.getPenny()).thenReturn(Long.valueOf(100));
-
-
-        Coin penny = new Penny(coinProperties);
-        Coin nickel = new Nickel(coinProperties, penny);
-        Coin dime = new Dime(coinProperties, nickel);
-        Coin quarter = new Quarter(coinProperties, dime);
-        coinService = new CoinService(quarter);
+        when(coinProperties.getFifty()).thenReturn(Long.valueOf(0));
+        when(coinProperties.getSeventy()).thenReturn(Long.valueOf(0));
+        when(coinProperties.getSeventyOne()).thenReturn(Long.valueOf(0));
+        coinService = new CoinService(coinProperties);
 
         System.setOut(new PrintStream(outContent));
     }

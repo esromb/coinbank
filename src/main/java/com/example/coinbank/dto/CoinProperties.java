@@ -15,4 +15,7 @@ public class CoinProperties {
     private long dime;
     private long nickel;
     private long penny;
+    private long fifty;
+    private long seventy;
+    private long seventyOne;
 }
