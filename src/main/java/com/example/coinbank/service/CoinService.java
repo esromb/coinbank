@@ -1,28 +1,19 @@
 package com.example.coinbank.service;
 
-import ch.qos.logback.core.encoder.EchoEncoder;
-import com.example.coinbank.dto.Coin;
 import com.example.coinbank.dto.CoinProperties;
 import com.example.coinbank.dto.CoinType;
 import org.apache.commons.lang3.StringUtils;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-import java.beans.IntrospectionException;
 import java.beans.PropertyDescriptor;
-import java.lang.reflect.InvocationTargetException;
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Optional;
 import java.util.Set;
 
 @Service
 public class CoinService {
-
-    private Coin coins;
 
     private Set<CoinType> coinTypes;
 
